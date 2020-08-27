@@ -5,20 +5,16 @@ const userIdEl = document.querySelector('#user_id');
 const nicknameEl = document.querySelector('#user_nickname');
 const buttonEl = document.querySelector('#login-button');
 
-window.DD_RUM && window.DD_RUM.init({
-  applicationId: 'dc6509e5-98bf-465c-a300-9527336d17c9',
-  clientToken: 'pubbc27149433c49e8b9fb34fd70c4d3667',
-  site: 'https://datadoghq.com',
-  sampleRate: 100,
-  trackInteractions: true
+window.DD_RUM && window.DD_RUM.addRumGlobalContext('usr', {
+  id: `USER-${USER_ID}`,
+  plan: 'demo-plan'
+});
+
+window.DD_RUM && window.DD_RUM.setRumGlobalContext({
+  demo: 'Admin Message Performance'
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.DD_RUM && window.DD_RUM.addRumGlobalContext('usr', {
-    id: `USER-${USER_ID}`,
-    plan: 'demo-plan'
-  });
-
   const cookieUserId = getCookie(USER_ID);
   if (cookieUserId) {
     userIdEl.value = cookieUserId;
@@ -36,10 +32,6 @@ buttonEl.addEventListener('click', () => {
 });
 
 const login = () => {
-  window.DD_RUM && window.DD_RUM.setRumGlobalContext({
-    demo: 'Admin Message Performance'
-  });
-
   const userId = userIdEl.value.trim();
   const nickname = nicknameEl.value.trim();
   if (isEmpty(nickname)) {

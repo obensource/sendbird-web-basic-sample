@@ -198,13 +198,13 @@ class Message {
     root.appendChild(msg);
     root.appendChild(authorCredit);
 
-    datadogRum.addUserAction('admin-message', {
+    window.DD_RUM && window.DD_RUM.addUserAction('admin-message', {
       message: {
         context: 'send',
         message: msg,
         author: authorCredit,
         image: data.img
-      },
+      }
     });
 
     return root;

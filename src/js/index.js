@@ -1,10 +1,10 @@
 import { isEmpty, setCookie, getCookie } from './utils';
 import { USER_ID, KEY_ENTER } from './const';
-import { datadogRum } from '@datadog/browser-rum';
+import { Datacenter, datadogRum } from '@datadog/browser-rum';
 
 datadogRum.init({
-    applicationId: '88233088ae6f8a0726da6266c8b39acfc7ef979e',
-    clientToken: '6422e1ad74893350bd20a288e24600c2',
+    applicationId: 'dc6509e5-98bf-465c-a300-9527336d17c9',
+    clientToken: 'pubbc27149433c49e8b9fb34fd70c4d3667',
     site: 'datadoghq.com',
     service: 'sendboard-app',
     env: 'heroku-demo',

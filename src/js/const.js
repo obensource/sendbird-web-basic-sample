@@ -1,4 +1,5 @@
 export const APP_ID = '03F334AB-0CD9-4CF2-A861-6FB2561C2AB4';
+export const DD_API_KEY = '6422e1ad74893350bd20a288e24600c2';
 export const USER_ID = 'user_id';
 export const DISPLAY_NONE = 'none';
 export const DISPLAY_BLOCK = 'block';

@@ -1,15 +1,5 @@
 import { isEmpty, setCookie, getCookie } from './utils';
 import { USER_ID, KEY_ENTER } from './const';
-import { datadogRum } from '@datadog/browser-rum';
-
-datadogRum.addRumGlobalContext('usr', {
-  id: `USER-${USER_ID}`,
-  plan: 'demo-plan'
-});
-
-datadogRum.setRumGlobalContext({
-  demo: 'Admin Message Performance'
-});
 
 const userIdEl = document.querySelector('#user_id');
 const nicknameEl = document.querySelector('#user_nickname');

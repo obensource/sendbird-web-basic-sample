@@ -6,7 +6,7 @@ import { MessageDeleteModal } from './MessageDeleteModal';
 import { UserBlockModal } from './UserBlockModal';
 import { Chat } from '../Chat';
 import { datadogRum } from '@datadog/browser-rum';
-import { USER_ID } from './const';
+import { USER_ID } from '../const';
 
 datadogRum.addRumGlobalContext('usr', {
   id: `USER-${USER_ID}`,

@@ -13,16 +13,12 @@ window.DD_RUM && window.DD_RUM.init({
   trackInteractions: true
 });
 
-window.DD_RUM && window.DD_RUM.addRumGlobalContext('usr', {
-  id: `USER-${USER_ID}`,
-  plan: 'demo-plan'
-});
-
-window.DD_RUM && window.DD_RUM.setRumGlobalContext({
-  demo: 'Admin Message Performance'
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+  window.DD_RUM && window.DD_RUM.addRumGlobalContext('usr', {
+    id: `USER-${USER_ID}`,
+    plan: 'demo-plan'
+  });
+
   const cookieUserId = getCookie(USER_ID);
   if (cookieUserId) {
     userIdEl.value = cookieUserId;
@@ -40,6 +36,10 @@ buttonEl.addEventListener('click', () => {
 });
 
 const login = () => {
+  window.DD_RUM && window.DD_RUM.setRumGlobalContext({
+    demo: 'Admin Message Performance'
+  });
+
   const userId = userIdEl.value.trim();
   const nickname = nicknameEl.value.trim();
   if (isEmpty(nickname)) {

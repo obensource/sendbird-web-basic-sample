@@ -5,6 +5,7 @@ import { COLOR_RED, MESSAGE_REQ_ID } from '../const';
 import { MessageDeleteModal } from './MessageDeleteModal';
 import { UserBlockModal } from './UserBlockModal';
 import { Chat } from '../Chat';
+import { datadogRum } from '@datadog/browser-rum';
 
 class Message {
   constructor({ channel, message }) {
@@ -196,6 +197,15 @@ class Message {
 
     root.appendChild(msg);
     root.appendChild(authorCredit);
+
+    datadogRum.addUserAction('admin-message', {
+      message: {
+        context: 'send',
+        message: msg,
+        author: authorCredit,
+        image: data.img
+      },
+    });
 
     return root;
   }
